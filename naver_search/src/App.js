@@ -12,13 +12,21 @@ function App() {
     setResults(data);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <h1>네이버 지역검색 API 되냐?</h1>
       <input
+        className="search_input"
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyPress={handleKeyPress}
         placeholder="Search for restaurants..."
         style={{ padding: "10px", width: "300px" }}
       />
@@ -26,7 +34,7 @@ function App() {
         onClick={handleSearch}
         style={{ padding: "10px", marginLeft: "10px" }}
       >
-        Search
+        검색
       </button>
       <div style={{ marginTop: "20px" }}>
         {results.length > 0 ? (
