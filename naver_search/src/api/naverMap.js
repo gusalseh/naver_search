@@ -7,7 +7,6 @@ const NaverMap = ({ latitude, longitude }) => {
     const loadNaverMapScript = () => {
       return new Promise((resolve) => {
         const existingScript = document.getElementById("naver-map-script");
-        888;
         if (!existingScript) {
           const script = document.createElement("script");
           script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.REACT_APP_NAVER_MAPS_API_KEY}`;
